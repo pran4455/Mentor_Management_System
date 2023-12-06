@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url("ssn.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Garamond;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin: 0;
+        }
+
+        .nav-bar {
+            height: 13%;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .nav-bar img {
+            height: 100%;
+            width: 15%;
+            padding-left: 2%;
+        }
+
+        .nav-bar a {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 12% auto;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .username,
+        .password {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: rgba(189, 126, 62, 0.646);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid black;
+        }
+
+        button:hover {
+            background-color: rgba(189, 126, 62, 0.646);
+            border: 1px solid black;
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                background-size: 100% 250%;
+                margin-top: 50%;
+                width: 95%;
+                height: 250%;
+            }
+        }
+
+        @media (min-width: 700px) and (min-height: 1000px) {
+            body {
+                background-size: 100% 250%;
+                margin-top: 50%;
+                width: 95%;
+                height: 400%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <img src="logo.png">
+        <a href='#' class="Home">Home</a>
+        <a href='#' class="about_us">How it works?</a>
+        <a href='#' class="login">Login</a>
+    </div>
+    <div class="container">
+        <form>
+            <h1>LOGIN</h1>
+            <div class="username">
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="password">
+                <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Sri Sivasubramaniya nadar collegue of engineering. All Rights Reserved</p>
+        <p>Created by: Piriyadharshini.A</p>
+    </div>
+</body>
+
+</html>

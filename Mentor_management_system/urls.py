@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from django.shortcuts import redirect
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', lambda request: redirect('/mentor')),
-    path('admin/', admin.site.urls),
-    
-]
+    path('mentor/', include('myapp.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
