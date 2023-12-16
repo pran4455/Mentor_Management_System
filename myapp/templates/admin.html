@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Garamond;
+            background-image: url("{% static 'ssn.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-bar {
+            height: 11%;
+            width: 100%;
+            background-color: black;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .nav-bar img {
+            height: 75%;
+            width: 10%;
+            padding-left: 2%;
+            padding-top: 1%;
+        }
+
+        .nav-bar .Home {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            padding-left: 65%;
+            padding-bottom: 1%;
+            text-decoration: none;
+        }
+        .nav-bar .about_us {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            padding-left: 5%;
+            padding-bottom: 1%;
+            text-decoration: none;
+        }
+
+        .admin-page {
+            max-width: 60%; /* Increased the width for better spacing */
+            height: 60%;
+            margin: 7% auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            box-shadow: 10px 10px 10px 0px;
+            border: 2px solid black;
+        }
+        .header {
+            background-color: #fff;
+            color: #000000;
+            padding: 20px 0;
+            text-align: center;
+            text-size-adjust: 30px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .options {
+            margin-top: 20px;
+            display: flex; /* Changed from grid to flex */
+            justify-content: space-around;
+            align-items: center; /* Added align-items to center vertically */
+        }
+        .option-box {
+            background-color: rgba(255, 255, 255, 0.5); /* Adjusted transparency */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+            width: 45%;
+        }
+        .option-box:hover {
+            transform: scale(1.1);
+        }
+        .option-icon {
+            font-size: 60px;
+            color: #007bff;
+        }
+        .option-title {
+            margin-top: 10px;
+            font-size: 24px;
+        }
+        .option-button {
+            background-color: rgba(189, 126, 62, 0.646);
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 20px;
+        }
+        .option-button:hover {
+            background-color: rgba(189, 126, 62, 5.5);
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            height: 4%;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: black; }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <img src="logo.png">
+        <a href='#' class="Home">Home</a>
+        <a href='#' class="about_us">How it works?</a>
+    </div>
+
+    <div class="admin-page">
+        <div class="header">
+            <h1>ADMIN</h1>
+        </div>
+        <div class="options">
+            <div class="option-box">
+                <i class="fas fa-user-plus option-icon" style="color: rgba(189, 126, 62, 5.5);"></i>
+                <div class="option-title"></div>
+                <button class="option-button">Add Mentor</button>
+            </div>
+            <div class="option-box">
+                <i class="fas fa-user-plus option-icon" style="color: rgba(189, 126, 62, 5.5);"></i>
+                <div class="option-title"></div>
+                <button class="option-button">Add Mentee</button>
+            </div>
+            <div class="option-box">
+                <i class="fas fa-network-wired option-icon" style="color: rgba(189, 126, 62, 5.5);"></i>
+                <div class="option-title"></div>
+                <button class="option-button">Assign Mentor</button>
+            </div>
+            <div class="option-box">
+                <i class="fas fa-chart-pie option-icon" style="color: rgba(189, 126, 62, 5.5); font-size: 60px;"></i>
+                <div class="option-title"></div>
+                <button class="option-button">Statistical Analysis</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Sri Sivasubramaniya Nadar College of Engineering. All Rights Reserved</p>
+    </div>
+</body>
+</html>

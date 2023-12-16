@@ -20,18 +20,9 @@ def login(request):
         with open('register.csv', 'r') as csvfile:
             reader = csv.reader(csvfile)
             for row in reader:
-                print(row)
-                print(username)
-                print(password)
-                
+
                 stored_username = row[3]
                 stored_password = row[4]
-
-                print('stored is :',stored_username)
-                print('stored_pass :',stored_password)
-                print(len(stored_password))
-                print('len of input password',len(password))
-                print(stored_password == password)
 
                 if username == stored_username:
                     if password == stored_password:
@@ -49,13 +40,13 @@ def login(request):
 
                         if row[-1] == "admin":
                             CURRENT_PRIV = "admin"
-                            return render(request, "admin_homepage.html")
+                            return render(request, "admin.html")
                         elif row[-1] == "mentor":
                             CURRENT_PRIV = "mentor"
-                            return render(request, "mentor_homepage.html")
+                            return render(request, "mentor.html")
                         elif row[-1] == "mentee":
                             CURRENT_PRIV = "mentee"
-                            return render(request, "mentee_homepage.html")
+                            return render(request, "mentee.html")
                     else:
                         return render(request, 'login2.html', {'alertmessage': 'Wrong password'})  # Display wrong password message
 
@@ -96,3 +87,28 @@ def addstudent(request):
         return render(request, 'login2.html', {'alertmessage': 'New user registration information stored successfully.'})
 
     return render(request, 'register.html')
+
+def mentorpage(request):
+
+    return render(request, 'mentor.html')
+
+def menteepage(request):
+
+    return render(request, 'mentee.html')
+
+def adminpage(request):
+
+    return render(request, 'admin.html')
+
+def admin(request):
+
+    print("passed")
+    return render(request, 'admin.html', {'alertmessage': 'Successfully logged in!'})
+
+# def view_mentors(request):
+
+#     with open('register.csv', 'a', newline='') as csvfile:
+#         reader = csv.reader(csvfile)
+#         for row in reader:
+
+#             if row[-1] == 

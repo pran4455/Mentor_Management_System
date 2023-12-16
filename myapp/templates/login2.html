@@ -22,12 +22,8 @@
             margin: 0;
         }
 
-        .nav-bar img {
-            content: url("{% static 'logo.png' %}");
-        }
-
         .nav-bar {
-            height: 13%;
+            height: 11%;
             width: 100%;
             background-color: black;
             margin-bottom: 20px;
@@ -37,42 +33,37 @@
         }
 
         .nav-bar img {
-            height: 100%;
-            width: 15%;
+            height: 75%;
+            width: 10%;
             padding-left: 2%;
+            padding-top: 1%;
         }
 
-        .nav-bar .login {
-            color: white;
-            font-size: 180%;
-            align-self: flex-end;
-            padding-right: 2%;
-            padding-bottom: 2%;
-            text-decoration: none;
-        }
         .nav-bar .Home {
             color: white;
             font-size: 180%;
             align-self: flex-end;
-            padding-left:50%;
-            padding-bottom: 2%;
+            padding-left:65%;
+            padding-bottom: 1%;
             text-decoration: none;
         }
         .nav-bar .about_us {
             color: white;
             font-size: 180%;
             align-self: flex-end;
-            padding-bottom: 2%;
+            padding-left:5%;
+            padding-bottom: 1%;
             text-decoration: none;
         }
 
         .container {
-            width: 50%;
-            margin:5% auto;
+            width: 35%;
+            margin:7% auto;
             justify-content: center;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 10px 0;
             border: 2px solid black;
         }
 
@@ -96,6 +87,7 @@
 
         button {
             width: 100%;
+            margin: 5% auto;
             padding: 10px;
             box-sizing: border-box;
             background-color: rgba(189, 126, 62, 0.646);
@@ -107,8 +99,9 @@
         }
 
         button:hover {
-            background-color: rgba(189, 126, 62, 0.646);
+            background-color: rgba(189, 126, 62, 4.5);
             border: 1px solid black;
+            transform: scale(1.1);
         }
         .footer {
             background-color: black;
@@ -116,6 +109,7 @@
             padding: 20px;
             text-align: center;
             position: fixed;
+            height: 4%;
             bottom: 0;
             width: 100%;
         }
@@ -134,14 +128,13 @@
 
 <body>
     <div class="nav-bar">
-        <img src="logo.png">
+        <img src="{% static 'logo.png' %}">
         <a href='#' class="Home">Home</a>
         <a href='#' class="about_us">How it works?</a>
-        <a href='#' class="login">Login</a>
     </div>
     <div class="container">
-        <h2>Login</h2>
-        <form method="post" action="{% url 'login' %}">
+          <h1>LOGIN</h1>
+          <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
             <div class="input-group">
                 <input type="text" name="username" placeholder="Email" required>
@@ -152,20 +145,18 @@
             <div class="input-group">
                 <button type="submit">Login</button>
             </div>
-            {% if message %}
-            <div class="error-message">
-                {{ message }}
-            </div>
-            {% endif %}
-        </form>
+        {% if message %}
+        <div class="error-message">
+            {{ message }}
         </div>
-        <div class="signup-link">
-            Don't have an account? <a href="/mentor/addstudent/">Sign up</a>
-        </div>
+        {% endif %}
     </div>
+    <div class="signup-link">
+        Don't have an account? <a href="/mentor/addstudent/">Sign up</a>
+    </div>
+  </div>
     <div class="footer">
-        <p>&copy; 2023 Sri Sivasubramaniya nadar collegue of engineering. All Rights Reserved</p>
-        <p>Create by: Piriyadharshini.A</p>
+        <p>&copy; 2023 Sri Sivasubramaniya Nadar College of Engineering. All Rights Reserved</p>
     </div>
     {% if alertmessage %}
     <script>
@@ -173,5 +164,4 @@
     </script>
     {% endif %}
 </body>
-
 </html>
