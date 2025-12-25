@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>View Marks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    html, body {
+        width: auto;
+        height: 100%;
+        margin: 0;
+        font-family: Garamond;
+    }
+
+    body {
+        background-image: url("{{ url_for('static', filename='ssn.jpg') }}");
+        background-size: cover;
+        width: auto;
+        height: 100%;
+        background-repeat: no-repeat;
+        font-family: Garamond;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        overflow-x: hidden;/* Add this line to hide horizontal scrollbar */
+    }
+
+    .nav-bar {
+        height: 13%;
+        width: 100%;
+        background-color: black;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-bar img {
+        height: 100%;
+        width: 15%;
+        padding-left: 2%;
+    }
+
+    .nav-bar .login {
+        color: white;
+        font-size: 180%;
+        align-self: flex-end;
+        padding-right: 2%;
+        padding-bottom: 2%;
+        text-decoration: none;
+    }
+
+    .nav-bar .Home {
+        color: white;
+        font-size: 180%;
+        align-self: flex-end;
+        padding-left:50%;
+        padding-bottom: 2%;
+        text-decoration: none;
+    }
+    .nav-bar .about_us {
+        color: white;
+        font-size: 180%;
+        align-self: flex-end;
+        margin-right:10px;
+        padding-bottom: 2%;
+        text-decoration: none;
+    }
+
+
+    h1 {
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0;
+        text-align: left;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        background-color: #fff;
+    }
+
+    select {
+        /* Remove height and overflow styles for a standard dropdown */
+        height: auto;
+        overflow: visible;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: rgba(189, 126, 62, 0.646);
+        color: black;
+        border: none;
+        margin-top:20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 1px solid black;
+    }
+
+    button:hover {
+        background-color: rgba(189, 126, 62, 0.646);
+        border: 1px solid black;
+    }
+
+    .footer {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .container {
+    width: 70%; /* Adjust the width based on your preference */
+    margin: 5% auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+    overflow: auto; /* Add this line to enable scrolling if the content overflows */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(189, 126, 62, 0.646);
+    color: black;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+
+    </style>
+</head>
+
+<body>
+  <div class="nav-bar">
+    <img src="{{ url_for('static', filename='logo.png') }}">
+    <a href='#' class="Home">Home</a>
+    <a href='#' class="about_us">How it works?</a>
+</div>
+    <div class="container">
+        <h2>Mentee Marks</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mentee Name</th>
+                    <th>Mentee Username</th>
+                    <th>SEM 1</th>
+                    <th>SEM 2</th>
+                    <th>SEM 3</th>
+                    <th>SEM 4</th>
+                    <th>SEM 5</th>
+                    <th>SEM 6</th>
+                    <th>SEM 7</th>
+                    <th>SEM 8</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mentee_data in mentees %}
+                    <tr>
+                        <td>{{ mentee_data[0] }}</td>
+                        <td>{{ mentee_data[1] }}</td>
+                        {% for mark in mentee_data[2:] %}
+                            <td>{{ mark }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+           
+        </table>
+        <button onclick="window.location.href='/gobackmentor'">BACK TO DASHBOARD</button>
+    </div>
+    <div class="footer">
+      <p>&copy; 2023 Sri Sivasubramaniya Nadar College of Engineering. All Rights Reserved</p>
+      <p>Created by: Piriyadharshini.A</p>
+  </div>
+</body>
+
+</html>

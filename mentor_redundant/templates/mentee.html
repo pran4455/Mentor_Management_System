@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Mentee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            width: auto;
+            height: 100%;
+        }
+
+        body {
+            background-image:url("{{ url_for('static', filename='ssn.jpg') }}");
+            background-size: cover;
+            width: auto;
+            height: 100%;
+            background-repeat: no-repeat;
+            font-family: Garamond;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .nav-bar {
+            height: 13%;
+            width: 100%;
+            background-color: black;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .nav-bar img {
+            height: 100%;
+            width: 15%;
+            padding-left: 2%;
+        }
+
+        .nav-bar .login {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            padding-right: 2%;
+            padding-bottom: 2%;
+            text-decoration: none;
+        }
+        .nav-bar .Home {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            padding-left:50%;
+            padding-bottom: 2%;
+            text-decoration: none;
+        }
+        .nav-bar .about_us {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            margin-right:10px;
+            padding-bottom: 2%;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 50%;
+            margin:5% auto;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .username,
+        .password {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: rgba(189, 126, 62, 0.646);
+            color: black;
+            border: none;
+            margin-bottom:20px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid black;
+        }
+
+        button:hover {
+            background-color: rgba(189, 126, 62, 0.646);
+            border: 1px solid black;
+        }
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: black; }
+        }
+
+        button:disabled {
+            background-color: #ccc; /* Grey color */
+            cursor: not-allowed; /* Show the "not allowed" cursor */
+            opacity: 0.7; /* Adjust the opacity to visually indicate it's disabled */
+        }
+    </style>
+</head>
+
+<body>
+  
+    <div class="nav-bar">
+        <img src="{{ url_for('static', filename='logo.png') }}">
+        <a href='#' class="Home">Home</a>
+        <a href='#' class="about_us">How it works?</a>
+        <a href='/logout' class="login">Logout</a>
+    </div>
+    <div class="container" >
+        <h1>Mentee Dashboard</h1>
+        <button onclick="window.location.href='/requestmeeting'">REQUEST MEETING</button>
+        <!-- Add Mentee Button -->
+        <button {% if is_mentee_button_enabled %} onclick="window.location.href='/markentry'" {% else %} disabled {% endif %}>CAT MARK ENTRY</button>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Sri Sivasubramaniya nadar collegue of engineering. All Rights Reserved</p>
+        <p>Created by: Piriyadharshini.A</p>
+    </div>
+</body>
+
+</html>

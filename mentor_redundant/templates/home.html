@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            width: auto;
+            height: 100%;
+        }
+
+        body {
+            background-image: url("{{ url_for('static', filename='ssn.jpg') }}");
+            background-size: cover;
+            width: auto;
+            height: 100%;
+            background-repeat: no-repeat;
+            font-family: Garamond;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .nav-bar {
+            height: 13%;
+            width: 100%;
+            background-color: black;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .nav-bar img {
+            height: 100%;
+            width: 15%;
+            padding-left: 2%;
+        }
+
+        .nav-bar .login {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            padding-right: 2%;
+            padding-bottom: 2%;
+            text-decoration: none;
+        }
+        .nav-bar .Home {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            padding-left:50%;
+            padding-bottom: 2%;
+            text-decoration: none;
+        }
+        .nav-bar .about_us {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            padding-bottom: 2%;
+            text-decoration: none;
+        }
+
+        .quote h1 {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 5% auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+            text-align: center;
+        }
+
+        .explore-button {
+            background-color: black;
+            color: white;
+            padding: 15px;
+            font-size: 150%;
+            text-decoration: none;
+            border-radius: 10px;
+            justify-content: center; 
+            margin-left:44%;
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: black; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <img src="{{ url_for('static', filename='logo.png') }}">
+        <a href='#' class="Home">Home</a>
+        <a href='#' class="about_us">How it works?</a>
+        <a href='/login' class="login">Login</a>
+    </div>
+    <div class="quote">
+        <h1>Mentoring is a brain to pick, an ear to listen,
+            <br>and a push in the right direction.
+            <br>-John C. Crosby</h1>
+        <a onclick="window.location.href='/login'" class="explore-button">Explore Now</a>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Sri Sivasubramaniya nadar collegue of engineering. All Rights Reserved</p>
+        <p>Created by: Piriyadharshini.A</p>
+    </div>
+</body>
+
+</html>

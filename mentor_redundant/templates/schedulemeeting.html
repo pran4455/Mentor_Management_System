@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Schedule Meeting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            width: auto;
+            height: 100%;
+            margin: 0;
+            font-family: Garamond;
+        }
+
+        body {
+            background-image: url("{{ url_for('static', filename='ssn.jpg') }}");
+            background-size: cover;
+            width: auto;
+            height: 100%;
+            background-repeat: no-repeat;
+            font-family: Garamond;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            overflow-x: hidden;/* Add this line to hide horizontal scrollbar */
+        }
+
+        .nav-bar {
+            height: 13%;
+            width: 100%;
+            background-color: black;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .nav-bar img {
+            height: 100%;
+            width: 15%;
+            padding-left: 2%;
+        }
+
+        .nav-bar .login {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            padding-right: 2%;
+            padding-bottom: 2%;
+            text-decoration: none;
+        }
+
+        .nav-bar .Home {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            padding-left:50%;
+            padding-bottom: 2%;
+            text-decoration: none;
+        }
+        .nav-bar .about_us {
+            color: white;
+            font-size: 180%;
+            align-self: flex-end;
+            margin-right:10px;
+            padding-bottom: 2%;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 50%;
+            margin: 5% auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #fff;
+        }
+
+        select {
+            /* Remove height and overflow styles for a standard dropdown */
+            height: auto;
+            overflow: visible;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: rgba(189, 126, 62, 0.646);
+            color: black;
+            border: none;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid black;
+        }
+
+        button:hover {
+            background-color: rgba(189, 126, 62, 0.646);
+            border: 1px solid black;
+        }
+
+        .footer {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <img src="{{ url_for('static', filename='logo.png') }}">
+        <a href='#' class="Home">Home</a>
+        <a href='#' class="about_us">How it works?</a>
+    </div>
+    <div class="container">
+        <h1>Schedule Meeting</h1>
+        <form action="{{url_for('schedulemeeting')}}" method="POST">
+            <label for="mentee_list">Mentee:</label>
+            <select id="mentee_list" name="mentee_list">
+              <option value="" selected disabled>Select a Mentee</option> <!-- Initial empty option -->
+                {% for mentee in mentees %}
+                <option value="{{ mentee }}">{{ mentee }}</option>
+                {% endfor %}
+                <option value="ALL" >ALL</option> <!-- Initial empty option -->
+            </select>
+
+            <label for="meeting_link">Meeting Link:</label>
+            <input type="text" id="meeting_link" name="meeting_link" required>
+
+            <label for="meeting_date">Meeting Date:</label>
+            <input type="date" id="meeting_date" name="meeting_date" required>
+
+            <button type="submit">Schedule Meeting</button>
+        </form>
+    </div>
+    <div class="footer">
+      <p>&copy; 2023 Sri Sivasubramaniya Nadar College of Engineering. All Rights Reserved</p>
+      <p>Created by: Piriyadharshini.A</p>
+  </div>
+</body>
+
+</html>
